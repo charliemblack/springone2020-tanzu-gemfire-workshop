@@ -1,0 +1,10 @@
+apiVersion: core.geode.apache.org/v1alpha1
+kind: GeodeCluster
+metadata:
+  name: springone-class
+spec:
+  exposeExternalManagement: true
+  locators:
+    replicas: 2
+  servers:
+    replicas: 3
