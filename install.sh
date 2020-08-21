@@ -4,11 +4,11 @@ set +e
 echo "export KUBECONFIG=~/.kube/config" >> ~/.profile
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.8.1/kind-$(uname)-amd64
 chmod +x ./kind
-mkdir -p .local/bin
-mv kind .local/bin/
+mkdir -p ~/.local/bin
+mv kind ~/.local/bin/
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
-mv kubectl .local/bin/
+mv kubectl ~/.local/bin/
 curl -L https://k14s.io/install.sh | sudo bash
 sudo apt-get update
 sudo apt-get install -y \
@@ -26,3 +26,9 @@ newgrp docker
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 sudo snap install k9s
 mkdir ~/.k9s
+echo 'PATH=$HOME/bin:$HOME/.local/bin:$PATH' >> ~/.profile
+echo 'export KUBECONFIG=~/.kube/config' >> ~/.profile
+echo 'export PATH=~/.local/bin/:${PATH}' >> ~/.profile
+echo 'export TMPDIR=~/tmp_dir' >> ~/.profile
+echo 'export TMP=~/tmp_dir' >> ~/.profile
+echo 'export TEMPDIR=~/tmp_dir' >> ~/.profile

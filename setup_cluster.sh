@@ -19,9 +19,9 @@ wait
 
 kubectl cluster-info --context kind-kind
 
-cat geode-controller-0.0.1-beta1.tar | docker import - registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-controller:0.0.1-beta1
-cat geode-locator-0.0.1-beta1.tar | docker import - registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-locator:0.0.1-beta1
-cat geode-server-0.0.1-beta1.tar | docker import - registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-server:0.0.1-beta1
+cat geode-controller-0.0.1-beta1.tgz | docker import - registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-controller:0.0.1-beta1
+cat geode-locator-0.0.1-beta1.tgz | docker import - registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-locator:0.0.1-beta1
+cat geode-server-0.0.1-beta1.tgz | docker import - registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-server:0.0.1-beta1
 
 kind load docker-image registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-controller:0.0.1-beta1
 kind load docker-image registry.pivotal.io/tanzu-gemfire-for-kubernetes/geode-server:0.0.1-beta1
