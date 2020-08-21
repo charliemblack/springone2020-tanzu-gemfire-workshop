@@ -17,18 +17,20 @@ sudo apt-get install -y \
     curl \
     gnupg-agent \
     software-properties-common
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
-curl https://get.docker.com | sudo bash
-# sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
+
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 sudo snap install k9s
 mkdir ~/.k9s
+mkdir ~/tmp_dir
 echo 'PATH=$HOME/bin:$HOME/.local/bin:$PATH' >> ~/.profile
 echo 'export KUBECONFIG=~/.kube/config' >> ~/.profile
 echo 'export PATH=~/.local/bin/:${PATH}' >> ~/.profile
 echo 'export TMPDIR=~/tmp_dir' >> ~/.profile
 echo 'export TMP=~/tmp_dir' >> ~/.profile
 echo 'export TEMPDIR=~/tmp_dir' >> ~/.profile
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get update
+curl https://get.docker.com | sudo bash
+# sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
